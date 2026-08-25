@@ -1,0 +1,77 @@
+{
+  "$schema": "https://www.schemastore.org/package.json",
+  "name": "hike-recap",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Turns a hiking holiday's GPX tracks into a single portrait recap reel.",
+  "keywords": [
+    "gpx",
+    "hiking",
+    "maplibre",
+    "playwright",
+    "video",
+    "visualization",
+    "vue"
+  ],
+  "homepage": "https://github.com/TitusKirch/hike-recap#readme",
+  "bugs": {
+    "url": "https://github.com/TitusKirch/hike-recap/issues"
+  },
+  "license": "MIT",
+  "author": "Titus Kirch <titus.kirch@kirch.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TitusKirch/hike-recap.git"
+  },
+  "type": "module",
+  "scripts": {
+    "ingest": "tsx scripts/ingest.ts",
+    "dev": "vite",
+    "render": "tsx scripts/render.ts",
+    "render:preview": "tsx scripts/render.ts --preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "oxlint . --deny-warnings",
+    "lint:fix": "oxlint . --fix --deny-warnings",
+    "format": "oxfmt --check .",
+    "format:fix": "oxfmt .",
+    "check": "pnpm lint && pnpm format && pnpm typecheck && pnpm check:policy",
+    "check:fix": "pnpm lint:fix && pnpm format:fix",
+    "check:policy": "node scripts/check-policy-parity.js",
+    "skills:update": "pnpm dlx skills@latest update -p -y",
+    "taze": "taze",
+    "taze:w": "taze -w",
+    "prepare": "husky",
+    "still": "tsx scripts/still.ts",
+    "fetch:geodata": "tsx scripts/fetch-geodata.ts"
+  },
+  "dependencies": {
+    "@tmcw/togeojson": "^7.1.2",
+    "@turf/turf": "^7.4.0",
+    "@xmldom/xmldom": "^0.9.12",
+    "vue": "^3.5.41"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
+    "@types/node": "^26.2.0",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "ffmpeg-static": "^5.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "oxfmt": "0.64.0",
+    "oxlint": "1.79.0",
+    "playwright": "^1.62.1",
+    "taze": "^21.1.0",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11",
+    "vue-tsc": "^3.3.11"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.22.0"
+}

@@ -1,0 +1,32 @@
+{
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+  "stats": {
+    "distance": "walked",
+    "ascent": "climbed",
+    "descent": "descended",
+    "duration": "on foot"
+  },
+  "units": {
+    "kilometres": "km",
+    "metres": "m",
+    "hours": "h",
+    "minutes": "min"
+  },
+  "attribution": {
+    "elevation": "Elevation",
+    "map": "Map"
+  }
+}

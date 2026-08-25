@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>hike-recap</title>
+    <style>
+      html,
+      body {
+        background: #0b1013;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* The capture surface. Its size is the video's size — the renderer sets a
+         matching viewport, so a screenshot of #scene is exactly one frame. */
+      #scene {
+        height: 1920px;
+        overflow: hidden;
+        position: relative;
+        width: 1080px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

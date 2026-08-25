@@ -1,0 +1,20 @@
+node_modules
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+.claude/settings.local.json
+build
+out
+.env
+
+# handover brief for the initial build — delete once implemented, never commit
+temp_ai.md
+
+# Region-specific and reproducible from the GPX via `pnpm fetch:geodata`.
+# Committing them would ship one area's tiles to everyone who clones.
+data/dem
+data/geo
+
+# Your own tracks and their geodata. Point HIKE_DATA_DIR at this to render them.
+data.local

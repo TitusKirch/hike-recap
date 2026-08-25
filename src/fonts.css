@@ -1,0 +1,32 @@
+/* Inter, bundled locally. No runtime font fetch — see CLAUDE.md. */
+@font-face {
+  font-display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/inter-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/inter-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/inter-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: block;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/inter-700.woff2') format('woff2');
+}

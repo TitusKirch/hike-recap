@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+# The unit tests cover the pure functions; they structurally cannot see the
+# failures that only appear in a rendered frame — a font falling back to a
+# serif, terrain rendering blank, labels colliding again, a projection putting
+# everything off-screen. So CI renders the bundled example and keeps the frames.
+#
+# `data/dem/` and `data/geo/` are gitignored and region-specific, so they are
+# cached rather than committed: the key is the tracks themselves, which means
+# Overpass is contacted on a cache miss and effectively never otherwise.
+name: Render
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    name: Render the example
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.pull_request.draft == false
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Keyed on the tracks, because that is what the extent — and therefore
+      # every tile and every Overpass query — is derived from.
+      - name: Restore geodata
+        id: geodata
+        uses: actions/cache@v6
+        with:
+          path: |
+            data/dem
+            data/geo
+          key: geodata-${{ hashFiles('data/gpx/**', 'data/tours.json') }}
+
+      - name: Fetch geodata
+        if: steps.geodata.outputs.cache-hit != 'true'
+        run: pnpm fetch:geodata
+
+      - name: Cache Playwright browsers
+        id: playwright
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Ingest
+        run: pnpm ingest
+
+      # Frame 30 is the intro card, 500 mid-draw, 880 the outro — the three
+      # places wording, terrain and labels are all on screen at once.
+      - name: Render stills
+        run: pnpm still 30 500 880
+
+      # Also proves the JPEG-into-ffmpeg pipe still works, which the stills
+      # never touch.
+      - name: Render the first 3 seconds
+        run: pnpm render:preview
+
+      - name: Upload frames
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: render-${{ github.sha }}
+          path: |
+            build/stills/
+            out/
+          if-no-files-found: warn
+          retention-days: 7

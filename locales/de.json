@@ -1,0 +1,32 @@
+{
+  "months": [
+    "Januar",
+    "Februar",
+    "März",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember"
+  ],
+  "stats": {
+    "distance": "gelaufen",
+    "ascent": "bergauf",
+    "descent": "bergab",
+    "duration": "unterwegs"
+  },
+  "units": {
+    "kilometres": "km",
+    "metres": "m",
+    "hours": "h",
+    "minutes": "min"
+  },
+  "attribution": {
+    "elevation": "Höhendaten",
+    "map": "Karte"
+  }
+}

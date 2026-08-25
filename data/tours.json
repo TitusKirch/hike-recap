@@ -1,0 +1,108 @@
+{
+  "title": "Malerweg 2026",
+  "region": "Sächsische Schweiz",
+  "locale": "de-DE",
+  "attribution": [
+    "Wegverlauf: © OpenStreetMap-Mitwirkende (Relation 114289), ODbL"
+  ],
+  "period": {
+    "from": "2026-05-01",
+    "to": "2026-05-12"
+  },
+  "tours": [
+    {
+      "id": "stage-1-stadt-wehlen",
+      "date": "2026-05-02",
+      "title": "Etappe 1 · Stadt Wehlen",
+      "gpx": "2026-05-02.gpx",
+      "distanceKm": 8.5,
+      "ascentM": 110,
+      "descentM": 35,
+      "durationMin": 137,
+      "summits": []
+    },
+    {
+      "id": "stage-2-hohnstein",
+      "date": "2026-05-03",
+      "title": "Etappe 2 · Hohnstein",
+      "gpx": "2026-05-03.gpx",
+      "distanceKm": 11.7,
+      "ascentM": 353,
+      "descentM": 273,
+      "durationMin": 212,
+      "summits": []
+    },
+    {
+      "id": "stage-3-altendorf",
+      "date": "2026-05-04",
+      "title": "Etappe 3 · Altendorf",
+      "gpx": "2026-05-04.gpx",
+      "distanceKm": 9,
+      "ascentM": 179,
+      "descentM": 269,
+      "durationMin": 159,
+      "summits": []
+    },
+    {
+      "id": "stage-4-neumannm-hle",
+      "date": "2026-05-06",
+      "title": "Etappe 4 · Neumannmühle",
+      "gpx": "2026-05-06.gpx",
+      "distanceKm": 13.5,
+      "ascentM": 368,
+      "descentM": 302,
+      "durationMin": 241,
+      "summits": []
+    },
+    {
+      "id": "stage-5-schmilka",
+      "date": "2026-05-07",
+      "title": "Etappe 5 · Schmilka",
+      "gpx": "2026-05-07.gpx",
+      "distanceKm": 7,
+      "ascentM": 120,
+      "descentM": 198,
+      "durationMin": 121,
+      "summits": []
+    },
+    {
+      "id": "stage-6-kleinhennersdorf",
+      "date": "2026-05-08",
+      "title": "Etappe 6 · Kleinhennersdorf",
+      "gpx": "2026-05-08.gpx",
+      "distanceKm": 12,
+      "ascentM": 325,
+      "descentM": 317,
+      "durationMin": 216,
+      "summits": []
+    },
+    {
+      "id": "stage-7-gohrisch",
+      "date": "2026-05-10",
+      "title": "Etappe 7 · Gohrisch",
+      "gpx": "2026-05-10.gpx",
+      "distanceKm": 10,
+      "ascentM": 432,
+      "descentM": 466,
+      "durationMin": 200,
+      "summits": []
+    },
+    {
+      "id": "stage-8-wei-ig",
+      "date": "2026-05-11",
+      "title": "Etappe 8 · Weißig",
+      "gpx": "2026-05-11.gpx",
+      "distanceKm": 9.2,
+      "ascentM": 124,
+      "descentM": 151,
+      "durationMin": 153,
+      "summits": []
+    }
+  ],
+  "aggregate": {
+    "distanceKm": 80.9,
+    "ascentM": 2011,
+    "descentM": 2011,
+    "durationMin": 1439
+  }
+}
