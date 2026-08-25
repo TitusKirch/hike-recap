@@ -257,6 +257,8 @@ This was briefly main-only and has been converted back. If it is ever converted 
 
 **CI also runs on pushes to `main` and `dev`, not only on pull requests.** Gated on pull requests alone, a broken gate on the integration branch stays invisible — which is exactly how a typecheck that failed on every PR went unnoticed.
 
+**The first release is pinned to 0.1.0 by `release-as` in `release-please-config.json`.** Left alone release-please cuts **1.0.0**: `bump-minor-pre-major` only governs bumps once a `0.x` version exists, and the *initial* release takes release-please's own default instead. `envprism` hit this and solved it the same way. **Remove the `release-as` line once v0.1.0 is tagged** — it pins every subsequent release to that version otherwise, and it has no job after the first one. And keep the file strict JSON: it is read with `JSON.parse`, so a `//` comment breaks releases silently.
+
 **If a PR is ever used, merge it with a merge commit, never a squash** — squashing collapses the individual `feat:`/`fix:` commits into the PR's own `chore:` title, and release-please then cuts nothing. Conventional Commits are not optional either way.
 
 ## Rendering notes
