@@ -30,6 +30,14 @@ jobs:
             echo "PR #$existing already open — push updated it automatically."
             exit 0
           fi
+          # `dev` identical to `main` is the normal state right after a release
+          # merge, and `gh pr create` treats it as an error. Nothing to roll up
+          # is not a failure, so say so and stop rather than going red.
+          ahead=$(gh api "repos/$GH_REPO/compare/main...dev" --jq '.ahead_by')
+          if [ "$ahead" = "0" ]; then
+            echo "dev is level with main — nothing to roll up."
+            exit 0
+          fi
           gh pr create \
             --base main \
             --head dev \
