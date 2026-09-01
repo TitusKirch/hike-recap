@@ -1,55 +1,23 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 
+# The checks come from this repo's own `check` script in package.json.
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-      - dev
   pull_request:
     branches:
       - main
       - dev
     types: [opened, synchronize, reopened, ready_for_review]
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - LICENSE
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
-  lint:
-    name: Lint & Format
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event.pull_request.draft == false
-    steps:
-      - uses: actions/checkout@v7
-
-      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Format check
-        run: pnpm format
-
-      - name: Typecheck
-        run: pnpm typecheck
-
-      - name: Unit tests
-        run: pnpm test
-
-      - name: Agent policy parity
-        run: pnpm check:policy
+  check:
+    name: CI
+    uses: kirchDev/workflows/.github/workflows/_ci-check.yml@f47f598f549a3c97924fdfd00f15371ea557e1aa # v0.1.1
