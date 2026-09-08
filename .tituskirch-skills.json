@@ -48,7 +48,8 @@
     }
   },
   "docs": {
-    "preset": "app"
+    "preset": "app",
+    "render": "duxt"
   },
   "work": {
     "tracker": "github",
