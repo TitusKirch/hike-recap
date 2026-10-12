@@ -60,14 +60,14 @@
     "ffmpeg-static": "^5.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "oxfmt": "0.64.0",
+    "oxfmt": "0.72.0",
     "oxlint": "1.87.0",
     "playwright": "^1.64.0",
     "taze": "^21.3.0",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "vite": "^8.3.4",
-    "vitest": "^4.1.11",
+    "vitest": "^5.0.3",
     "vue-tsc": "^3.3.12"
   },
   "engines": {

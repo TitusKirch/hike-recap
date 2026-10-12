@@ -21,9 +21,8 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "types": ["node", "vitest/globals"],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.vue", "scripts/**/*.ts", "*.config.ts"],
