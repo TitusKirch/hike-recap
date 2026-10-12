@@ -205,7 +205,7 @@ GPX files are named by date (`data/gpx/YYYY-MM-DD.gpx`) and are checked in — t
 ## Conventions
 
 - **Vue 3 with `<script setup>`, never React.** This is a hard preference, and it rules out React-based libraries wholesale — Remotion was evaluated for the render layer and rejected on exactly these grounds. If the obvious tool for a job is React-based, find the Vue or vanilla equivalent, or build the small piece by hand.
-- **TypeScript strict, ESM.** `"type": "module"`; `moduleResolution: bundler`. No CommonJS. TypeScript is pinned to 5.x — `vue-tsc` does not yet work with the TypeScript 7 native port.
+- **TypeScript strict, ESM.** `"type": "module"`; `moduleResolution: bundler`. No CommonJS. TypeScript is held at 6.x — `vue-tsc` does not yet work with the TypeScript 7 native port.
 - **oxc, not eslint/prettier.** Linting via `oxlint` (`.oxlintrc.json`), formatting via `oxfmt` (`.oxfmtrc.json`). Don't swap them out. If a rule fights a specific file, disable it per-file rather than weakening the global config.
 - **Vitest, not Jest.** Tests live next to the code they cover, in `__tests__/`.
 - **No runtime fetches in the render path** — fonts are local `.woff2` under `src/assets/fonts/`, data is the compiled JSON. Map tiles are the one network dependency, and they need an API key. There is no system sans-serif in this environment, so an unloaded font silently falls back to a serif: always verify a rendered frame, not just the preview.
