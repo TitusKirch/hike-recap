@@ -31,7 +31,7 @@ pnpm render          # → out/hike-recap.mp4
 ```
 
 > [!IMPORTANT]
-> Node 24 and pnpm 11, pinned via `.nvmrc`, `engines` and `packageManager`. Elevation tiles and the OSM extract are **not** committed — they are specific to one region, and `fetch:geodata` rebuilds them from your tracks in a single step.
+> Node 24 and pnpm 12, pinned via `.nvmrc`, `engines` and `packageManager`. Elevation tiles and the OSM extract are **not** committed — they are specific to one region, and `fetch:geodata` rebuilds them from your tracks in a single step.
 
 `data/` ships an eight-stage example walk, so the commands above work on a fresh clone.
 
@@ -45,7 +45,7 @@ pnpm render          # → out/hike-recap.mp4
 - **⏱️ Even pacing** — draw time is proportional to track length, so the moving head keeps a constant speed instead of racing through the long tours.
 - **⛰️ Only what you climbed** — summits are named where a track actually passes them, matched by coordinate rather than by name, because peak names repeat within a region.
 - **🌍 Any region, any language** — zoom level, elevation ramp, route colours and the attribution line all follow your data; wording comes from a locale file.
-- **🧪 Tested core** — 167 Vitest cases over the pure functions, including the label-collision guarantees and the constant-speed rule.
+- **🧪 Tested core** — a Vitest suite over the pure functions, including the label-collision guarantees and the constant-speed rule.
 
 ## 📚 Docs
 
