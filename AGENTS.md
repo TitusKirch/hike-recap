@@ -89,7 +89,7 @@ Traps:
 
 **No map tiles and no map library** — `maplibre-gl` is deliberately not a dependency ([ADR 0003](docs/99.adr/0003-draw-the-map-instead-of-fetching-tiles.md)). The map is drawn from DEM and OSM data, bottom to top: hillshade and hypsometric tint (canvas), land cover, water, contours, routes, labels.
 
-- **The ground tone comes from elevation** (`hypsometric()`), with tagged land cover over it — never from OSM vegetation alone, because alpine pasture is mostly untagged.
+- **The ground tone comes from elevation** (`hypsometricFor()`), with tagged land cover over it — never from OSM vegetation alone, because alpine pasture is mostly untagged.
 - **Attribution is mandatory and shown by default** — one text line in the outro, never a logo. Terrain Tiles mixes its sources by area, so `attributionFor()` emits the always-true lines, adds regional duties from a bounding-box table and appends `attribution` from `tours.json`. Over-crediting on an overlap is intended.
 
 ## Conventions
