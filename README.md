@@ -74,7 +74,14 @@ There is deliberately little to set: zoom, colour ramp, palette and radii are al
 
 ### Attribution is not decoration
 
-Terrain tiles mix their sources by area — SRTM globally, with 3DEP, EU-DEM, Kartverket and others taking over in places, each with its own duty to credit — and a downloaded tile does not record which one it came from. So the two lines that always apply are emitted automatically, regional duties are matched against a coarse bounding-box table, and anything else goes in `attribution`. On an overlap it over-credits by design, and the line is shown by default: a tool that quietly drops attribution makes its users infringe.
+The credit line is shown by default: a tool that quietly drops attribution makes its users infringe.
+
+<details>
+<summary>Why it cannot be fully derived</summary>
+
+Terrain tiles mix their sources by area — SRTM globally, with 3DEP, EU-DEM, Kartverket and others taking over in places, each with its own duty to credit — and a downloaded tile does not record which one it came from. So the two lines that always apply are emitted automatically, regional duties are matched against a coarse bounding-box table, and anything else goes in `attribution`. On an overlap it over-credits by design.
+
+</details>
 
 <details>
 <summary>How rendering works</summary>
