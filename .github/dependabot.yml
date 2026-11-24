@@ -1,5 +1,5 @@
 # Dependabot opens its PRs against the `dev` integration branch, not the default
-# branch — see CLAUDE.md.
+# branch — see AGENTS.md.
 version: 2
 updates:
   - package-ecosystem: 'npm'

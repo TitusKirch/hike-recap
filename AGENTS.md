@@ -1,18 +1,6 @@
-# CLAUDE.md
+# hike-recap — agent guide
 
 This file provides guidance to AI coding agents — Claude Code (claude.ai/code) and vendor-neutral tools such as Codex, OpenCode, Cursor, and Copilot — when working with code in this repository.
-
-## Agent instruction files
-
-`CLAUDE.md` and `AGENTS.md` are kept **byte-identical**. `CLAUDE.md` is what Claude Code reads; `AGENTS.md` is what vendor-neutral agent tools read. Two real files, deliberately not a symlink: not every tool resolves one.
-
-**After editing either file, copy it over the other — don't repeat the edit by hand:**
-
-```bash
-cp CLAUDE.md AGENTS.md   # or the reverse, whichever you just edited
-```
-
-Retyping a change is exactly how the two drift; one reflowed line is enough. `diff CLAUDE.md AGENTS.md` must print nothing. If it ever does, treat it as a defect and fix it by letting one file win wholesale — never by merging them.
 
 ## What this repo is
 

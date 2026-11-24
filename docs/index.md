@@ -15,4 +15,4 @@ These pages hold what the source cannot state: how the parts fit together, how t
 - [Guides](2.guides/) — rendering your own trip, and adding a language.
 - [Architecture decisions](99.adr/) — the decision log.
 
-Install and first run live in the [README](../README.md). The repo's working conventions — stack, tooling, commit format, branching — live in [`CLAUDE.md`](../CLAUDE.md), which is kept byte-identical with `AGENTS.md`.
+Install and first run live in the [README](../README.md). The repo's working conventions — stack, tooling, commit format, branching — live in [`AGENTS.md`](../AGENTS.md).

@@ -44,7 +44,7 @@ const OUT = resolve(ROOT, 'build/tours.compiled.json');
 const SIMPLIFY_TOLERANCE_PX = 0.6;
 const SMOOTHING_WINDOW = 9;
 const GAIN_THRESHOLD_M = 4;
-/** Peaks nearer than this to the track count as climbed — see CLAUDE.md. */
+/** Peaks nearer than this to the track count as climbed — see AGENTS.md. */
 const SUMMIT_RADIUS_M = 200;
 
 type TourInput = {

@@ -7,7 +7,7 @@
  *
  *   pnpm fetch:geodata
  *
- * Sources and their attribution obligations are listed in CLAUDE.md.
+ * Sources and their attribution obligations are listed in AGENTS.md.
  */
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -363,7 +363,7 @@ async function main(): Promise<void> {
   }
   console.info(`data/dem/       ${fetched} geladen, ${cached} vorhanden`);
   console.info(
-    '\nAttribution siehe CLAUDE.md → "Data sources and attribution".'
+    '\nAttribution siehe AGENTS.md → "Data sources and attribution".'
   );
 }
 
