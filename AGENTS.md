@@ -113,6 +113,6 @@ Traps:
 - **`promotion-pr.yml` needs a repository setting:** Settings → Actions → General → *Allow GitHub Actions to create and approve pull requests*. Without it no PR ever appears.
 - **Changing the branch model moves these together:** `promotion-pr.yml`; `target-branch` and the security-update blocks in `dependabot.yml`; the branch filters in `ci.yml`, `codeql.yml`, `render.yml` and `queue-branch.yml`; `pr.base`, `release.stages` and `work.branch` in `.tituskirch-skills.json`.
 - **Keep the duplicated security-update blocks in `dependabot.yml`** — the file says why.
-- **`ci.yml` runs on every pull request**, without `paths-ignore`, because `CI / Gate` is a required check. `render.yml` also runs on pushes to `main` and `dev`: it renders the example (three stills and the preview) and caches `data/dem/` and `data/geo/` keyed on the GPX.
+- **`ci.yml` runs on every pull request**, without `paths-ignore`, because `CI / Gate` is a required check. It has no push trigger: a push to `dev` is checked by the promotion PR that is always open on it. `render.yml` also runs on pushes to `main` and `dev`: it renders the example (three stills and the preview) and caches `data/dem/` and `data/geo/` keyed on the GPX.
 - **`release-please-config.json` is strict JSON** — a comment breaks releases silently.
 - **Merge PRs with a merge commit, never a squash**, or release-please cuts nothing.
