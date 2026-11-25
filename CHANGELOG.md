@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/TitusKirch/hike-recap/compare/v0.2.0...v0.2.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* **deps:** update the npm dependencies to their latest minor versions ([21358f8](https://github.com/TitusKirch/hike-recap/commit/21358f831cda0915ef4f6f721e52ab996224162c))
+* **geodata:** list cached DEM tiles once and write new ones exclusively ([b4fa294](https://github.com/TitusKirch/hike-recap/commit/b4fa294cfad7e1efff4a57e6a6ef3e595979f727))
+
 ## [0.2.0](https://github.com/TitusKirch/hike-recap/compare/v0.1.0...v0.2.0) (2026-10-12)
 
 
