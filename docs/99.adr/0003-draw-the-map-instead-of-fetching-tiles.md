@@ -5,8 +5,6 @@ status: 'accepted'
 date: '2026-08-25'
 ---
 
-# ADR-0003 — Draw the map instead of fetching tiles
-
 ## Context
 
 The video is a map with routes drawn on it, so a basemap is the obvious dependency. Every tile provider's free tier attaches a condition: MapTiler, Mapbox and the rest either brand the map with a logo that must stay visible, or restrict use in video, or both. A logo burned into a personal recap video is the wrong trade, and the terms are the least interesting thing about the result.
