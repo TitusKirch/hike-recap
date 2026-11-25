@@ -5,8 +5,6 @@ status: 'accepted'
 date: '2026-08-25'
 ---
 
-# ADR-0005 — Derive every constant from the data
-
 ## Context
 
 The project began as a recap of one specific trip, and a lot of it was tuned to that trip: DEM zoom fixed at 13, an elevation ramp in fixed metres, twelve route colours, German wording in the components, an attribution line written by hand.

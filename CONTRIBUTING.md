@@ -1,67 +1,39 @@
-# Contributing to scaffold
-
-Thanks for taking the time to contribute! 🛠️ This document covers what you need to get a PR landed.
+# Contributing to hike-recap
 
 ## Code of Conduct
 
-This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold it.
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Reporting issues
 
-- **Questions & ideas, or something that might be a bug**: start in the [Discord forum](https://discord.kirch.dev/) — that's where the low-friction, unconfirmed stuff lives.
-- **Confirmed bugs**: open a [Bug report](https://github.com/TitusKirch/hike-recap/issues/new?template=bug_report.yml) with a minimal reproduction if at all possible.
-- **Feature requests**: open a [Feature request](https://github.com/TitusKirch/hike-recap/issues/new?template=feature_request.yml).
-- **Security vulnerabilities**: **do not** open a public issue. Follow [SECURITY.md](SECURITY.md).
+- **Questions, ideas, possible bugs**: the [Discord forum](https://discord.kirch.dev/).
+- **Confirmed bugs**: a [bug report](https://github.com/TitusKirch/hike-recap/issues/new?template=bug_report.yml), with a minimal reproduction where possible.
+- **Feature requests**: a [feature request](https://github.com/TitusKirch/hike-recap/issues/new?template=feature_request.yml).
+- **Security vulnerabilities**: never a public issue — follow [SECURITY.md](SECURITY.md).
 
-## Development setup
+## Setup
 
-Requirements:
-
-- Node **24+** and **pnpm 11**
-- `git`
-
-Clone and install:
+Node **24+** and **pnpm 12**, then:
 
 ```bash
 git clone https://github.com/TitusKirch/hike-recap.git
-cd scaffold
-pnpm install   # wires husky hooks
+cd hike-recap
+pnpm install   # also wires the husky hooks
 ```
 
-## Running the suite
+Commands and repo conventions live in [AGENTS.md](AGENTS.md). Before you push, `pnpm check` and `pnpm test` must pass — CI runs the same gate and renders the example. `pnpm check:fix` repairs lint and formatting.
 
-| Command          | What it does                              |
-| :--------------- | :---------------------------------------- |
-| `pnpm lint`      | oxlint across the repo.                   |
-| `pnpm format`    | oxfmt check across JS / JSON / YAML / MD. |
-| `pnpm check`     | Runs `lint` and `format`.                 |
-| `pnpm check:fix` | Auto-fix lint + format issues.            |
+## Branches and commits
 
-The same commands run in CI — keep them green before you push.
+- **Branch off `dev` and target `dev`.** `main` only receives the promotion from `dev`.
+- **Conventional Commits**, enforced by commitlint; a breaking change takes `!` or a `BREAKING CHANGE:` footer.
+- **One concern per PR**, docs updated alongside the change.
+- **Never `--no-verify`.** If a hook fails, fix the cause and commit again.
 
-## Branching & PRs
+## Agent instructions
 
-1. **Don't push directly to `main`.** Branch off `main` for every change.
-2. **Conventional Commits required.** Commitlint enforces this on every commit. Examples:
-   - `feat: add new GitHub workflow`
-   - `fix(ci): correct pnpm cache key`
-   - `docs(readme): clarify template usage steps`
-   - `chore(deps): bump oxlint to 1.67`
-   - Breaking changes: `feat!: ...` or include `BREAKING CHANGE:` in the body.
-3. **One concern per PR.** Smaller PRs land faster.
-4. **Update relevant docs.** README, CONTRIBUTING, or comments if you change a default.
-
-## Style & quality gates
-
-Husky runs the following on `git commit`:
-
-- **JS / JSON / YAML / MD** → `oxlint` + `oxfmt`
-
-If a hook fails, fix the issue and commit again. **Don't `--no-verify`** unless I explicitly ask.
-
-> [!TIP]
-> Run `pnpm check:fix` before opening a PR — saves a CI cycle.
+`AGENTS.md` is the only agent instruction file. Claude Code reads it itself from v2.1.277 on — as long as no `CLAUDE.md` or `CLAUDE.local.md` sits in the working directory or above it, so don't add one.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing, you agree that your contributions are licensed under the [MIT License](LICENSE).

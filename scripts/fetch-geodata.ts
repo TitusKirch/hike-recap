@@ -7,10 +7,9 @@
  *
  *   pnpm fetch:geodata
  *
- * Sources and their attribution obligations are listed in CLAUDE.md.
+ * Sources and their attribution obligations are listed in AGENTS.md.
  */
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { boundsOf, pixelXToLon, pixelYToLat } from '@/lib/geo.ts';
@@ -343,10 +342,15 @@ async function main(): Promise<void> {
   );
   let fetched = 0;
   let cached = 0;
+  // Listed once rather than checked per tile, and written with `wx` below: a
+  // per-path existence check followed by a write is a race, and `wx` refuses to
+  // overwrite a tile that appeared in between instead of clobbering it.
+  const present = new Set(await readdir(resolve(ROOT, DATA, 'dem')));
   for (let x = x0; x <= x1; x += 1) {
     for (let y = y0; y <= y1; y += 1) {
-      const path = resolve(ROOT, DATA, `dem/${ZOOM}_${x}_${y}.png`);
-      if (existsSync(path)) {
+      const name = `${ZOOM}_${x}_${y}.png`;
+      const path = resolve(ROOT, DATA, 'dem', name);
+      if (present.has(name)) {
         cached += 1;
         continue;
       }
@@ -357,13 +361,22 @@ async function main(): Promise<void> {
         console.warn(`  Kachel ${x}/${y}: HTTP ${res.status}`);
         continue;
       }
-      await writeFile(path, Buffer.from(await res.arrayBuffer()));
-      fetched += 1;
+      try {
+        await writeFile(path, Buffer.from(await res.arrayBuffer()), {
+          flag: 'wx'
+        });
+        fetched += 1;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'EEXIST') {
+          throw error;
+        }
+        cached += 1;
+      }
     }
   }
   console.info(`data/dem/       ${fetched} geladen, ${cached} vorhanden`);
   console.info(
-    '\nAttribution siehe CLAUDE.md → "Data sources and attribution".'
+    '\nAttribution siehe AGENTS.md → "Data sources and attribution".'
   );
 }
 

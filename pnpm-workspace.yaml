@@ -22,3 +22,9 @@ nodeLinker: isolated
 allowBuilds:
   esbuild: true
   ffmpeg-static: true
+
+# taze ships an agent skill that runs `npx taze -w`, which also rewrites
+# workflow refs and .nvmrc; dependency updates go through `pnpm taze` instead.
+permissions:
+  taze:
+    skills: false

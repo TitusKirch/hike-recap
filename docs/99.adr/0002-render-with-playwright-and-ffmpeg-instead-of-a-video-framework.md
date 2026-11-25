@@ -5,11 +5,9 @@ status: 'accepted'
 date: '2026-08-25'
 ---
 
-# ADR-0002 — Render with Playwright and ffmpeg instead of a video framework
-
 ## Context
 
-[ADR-0001](0001-build-the-scene-in-vue-instead-of-react.md) rules out the React-based video frameworks, so the project has to turn a browser scene into an MP4 itself. The requirements are modest — one fixed output spec, one scene, no compositing, no audio — but the output has to be deterministic: a silent 30-second animation makes any stutter or tear immediately visible.
+[ADR-0001](/adr/0001-build-the-scene-in-vue-instead-of-react) rules out the React-based video frameworks, so the project has to turn a browser scene into an MP4 itself. The requirements are modest — one fixed output spec, one scene, no compositing, no audio — but the output has to be deterministic: a silent 30-second animation makes any stutter or tear immediately visible.
 
 ## Decision
 
